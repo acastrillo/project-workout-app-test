@@ -1,0 +1,14 @@
+// apps/web/tsconfig.server.json
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "module": "commonjs",         
+    "esModuleInterop": true,
+    "strict": true,
+    "baseUrl": ".",               // ← needed for tsconfig-paths
+    "paths": {                    // ← mirror your app’s alias
+      "@shared/*": ["../../packages/shared/src/*"]
+    }
+  },
+  "include": ["src"]
+}

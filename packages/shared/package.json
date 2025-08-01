@@ -1,0 +1,9 @@
+{
+  "name": "@rep-keeper/shared",
+  "version": "0.0.0",
+  "main": "dist/parser.js",
+  "types": "dist/parser.d.ts",
+  "scripts": {
+    "build": "tsc --declaration --outDir dist"
+  }
+}

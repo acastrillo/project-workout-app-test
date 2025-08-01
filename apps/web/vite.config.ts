@@ -1,13 +1,16 @@
 // apps/web/vite.config.ts
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import * as path from 'path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  resolve: {
-    alias: {
-      '@shared': path.resolve(__dirname, '../../packages/shared/src'),
+  server: {
+    proxy: {
+      // Proxy any call to /api to your Express server on port 3001
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
     },
   },
-})
+});
