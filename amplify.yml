@@ -1,0 +1,22 @@
+version: 1.0
+applications:
+  - appRoot: apps/web            # ← your web package
+    frontend:
+      phases:
+        install:
+          commands:
+            - corepack enable
+            - pnpm install --frozen-lockfile
+        build:
+          commands:
+            - pnpm turbo run build --filter=apps/web
+      artifacts:
+        # Vite’s output directory for your web app
+        baseDirectory: apps/web/dist
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - ~/.pnpm-store
+          - node_modules/**/*
+          - apps/web/node_modules/**/*
