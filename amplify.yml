@@ -5,14 +5,17 @@ applications:
       phases:
         install:
           commands:
-            # 1) install pnpm
-            - npm install -g pnpm@^9
-            # 2) then use it
+            # 🚀 Enable and activate the exact PNPM version your repo uses
+            - corepack enable
+            - corepack prepare pnpm@9.0.0 --activate
+            # 🔒 Install via PNPM using your lockfile
             - pnpm install --frozen-lockfile
         build:
           commands:
+            # ⬇️ Build only your web app
             - pnpm turbo run build --filter=apps/web
       artifacts:
+        # Vite outputs here
         baseDirectory: apps/web/dist
         files:
           - '**/*'
