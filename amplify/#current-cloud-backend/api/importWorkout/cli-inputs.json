@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "paths": {
+    "/import": {
+      "name": "/import",
+      "lambdaFunction": "repkeeperImport",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  }
+}

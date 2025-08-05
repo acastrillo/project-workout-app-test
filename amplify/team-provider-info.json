@@ -1,0 +1,30 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-repkeeper-dev-5945f-authRole",
+      "UnauthRoleArn": "arn:aws:iam::920013187591:role/amplify-repkeeper-dev-5945f-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::920013187591:role/amplify-repkeeper-dev-5945f-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-repkeeper-dev-5945f-deployment",
+      "UnauthRoleName": "amplify-repkeeper-dev-5945f-unauthRole",
+      "StackName": "amplify-repkeeper-dev-5945f",
+      "StackId": "arn:aws:cloudformation:us-east-1:920013187591:stack/amplify-repkeeper-dev-5945f/fe946d70-71a8-11f0-bc35-0affe3abed6d",
+      "AmplifyAppId": "dmxxcglfqpz4o",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-repkeeper-dev-5945f-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "function": {
+        "repkeeperImport": {
+          "deploymentBucketName": "amplify-repkeeper-dev-5945f-deployment",
+          "s3Key": "amplify-builds/repkeeperImport-67795679397166446850-build.zip"
+        }
+      },
+      "auth": {
+        "repkeeper": {}
+      },
+      "api": {
+        "importWorkout": {}
+      }
+    }
+  }
+}

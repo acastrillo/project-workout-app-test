@@ -1,0 +1,113 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-repkeeper-dev-5945f-authRole",
+      "UnauthRoleArn": "arn:aws:iam::920013187591:role/amplify-repkeeper-dev-5945f-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::920013187591:role/amplify-repkeeper-dev-5945f-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-repkeeper-dev-5945f-deployment",
+      "UnauthRoleName": "amplify-repkeeper-dev-5945f-unauthRole",
+      "StackName": "amplify-repkeeper-dev-5945f",
+      "StackId": "arn:aws:cloudformation:us-east-1:920013187591:stack/amplify-repkeeper-dev-5945f/fe946d70-71a8-11f0-bc35-0affe3abed6d",
+      "AmplifyAppId": "dmxxcglfqpz4o",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-repkeeper-dev-5945f-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    }
+  },
+  "function": {
+    "repkeeperImport": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [],
+      "lastBuildTimeStamp": "2025-08-05T03:26:15.037Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2025-08-05T03:26:15.417Z",
+      "distZipFilename": "repkeeperImport-67795679397166446850-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-repkeeper-dev-5945f-deployment",
+        "s3Key": "amplify-builds/repkeeperImport-67795679397166446850-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-repkeeper-dev-5945f-deployment/amplify-cfn-templates/function/repkeeperImport-cloudformation-template.json",
+        "logicalId": "functionrepkeeperImport"
+      },
+      "lastPushTimeStamp": "2025-08-05T03:28:18.329Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::920013187591:role/repkeeperLambdaRoledb5cbed8-dev",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:920013187591:function:repkeeperImport-dev",
+        "Name": "repkeeperImport-dev",
+        "LambdaExecutionRole": "repkeeperLambdaRoledb5cbed8-dev"
+      },
+      "lastPushDirHash": "TiUOT2rPqHD/Y+Bpty0wd+A7KX8="
+    }
+  },
+  "auth": {
+    "repkeeper": {
+      "service": "Cognito",
+      "serviceType": "managed",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-repkeeper-dev-5945f-deployment/amplify-cfn-templates/auth/repkeeper-cloudformation-template.json",
+        "logicalId": "authrepkeeper"
+      },
+      "lastPushTimeStamp": "2025-08-05T03:28:18.329Z",
+      "output": {
+        "UserPoolId": "us-east-1_qv5U4tWpP",
+        "AppClientIDWeb": "28qnr3cle57e34udlb68da676c",
+        "AppClientID": "51g7nbdcel6ttc6puu4bbuk69a",
+        "IdentityPoolId": "us-east-1:e00e8e28-0e00-487d-92fc-d21382f70741",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:920013187591:userpool/us-east-1_qv5U4tWpP",
+        "IdentityPoolName": "repkeeper_identitypool_9a714ed4__dev",
+        "UserPoolName": "repkeeper_userpool_9a714ed4"
+      },
+      "lastPushDirHash": "oFOwuuDFNL4sNkfgWnbhyWN3FwI="
+    }
+  },
+  "api": {
+    "importWorkout": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "repkeeperImport",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-repkeeper-dev-5945f-deployment/amplify-cfn-templates/api/importWorkout-cloudformation-template.json",
+        "logicalId": "apiimportWorkout"
+      },
+      "lastPushTimeStamp": "2025-08-05T03:28:18.329Z",
+      "output": {
+        "ApiName": "importWorkout",
+        "RootUrl": "https://8oroelr5uh.execute-api.us-east-1.amazonaws.com/dev",
+        "ApiId": "8oroelr5uh"
+      },
+      "lastPushDirHash": "A/YjY6++NOGQ58Cq5QVS0oCKaGY="
+    }
+  }
+}
