@@ -1,7 +1,7 @@
 version: 1
 applications:
-  - frontend:
-      appRoot: "apps/web"
+  - appRoot: apps/web
+    frontend:
       framework: none
       phases:
         preBuild:
