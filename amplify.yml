@@ -1,23 +1,20 @@
-version: 1.0
+version: 1
 applications:
-  - appRoot: apps/web
-    frontend:
+  - frontend:
+      appRoot: apps/web
+      framework: none
       phases:
-        install:
+        preBuild:
           commands:
-            # enable Corepack and activate the same PNPM version you use locally
-            - corepack enable
-            - corepack prepare pnpm@9 --activate
-            - pnpm install --frozen-lockfile
+            - yarn install
         build:
           commands:
-            - pnpm turbo run build --filter=apps/web
+            - yarn turbo run build --filter=web
       artifacts:
-        baseDirectory: apps/web/dist
+        baseDirectory: dist
         files:
           - '**/*'
       cache:
         paths:
-          - ~/.pnpm-store
+          - .yarn/cache/**/*
           - node_modules/**/*
-          - apps/web/node_modules/**/*
